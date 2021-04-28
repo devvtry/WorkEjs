@@ -1,0 +1,51 @@
+<%- include ('partials/header') %>
+    <h1>Customer App</h1>
+    <br />
+    <%= title %>
+
+        <form method="POST" action="/user/add">
+
+            <label>First name</label>
+            <input type="text" name="first_name" />
+            <br />
+            <label>Last name</label>
+            <input type="text" name="last_name" />
+            <br />
+
+            <label>email</label>
+            <input type="text" name="email" />
+            <br />
+            <br />
+
+            <input type="submit" value="submit" />
+
+
+        </form>
+
+        <ul>
+
+            <% users.map((item)=>{ %>
+                <li>
+                    first name: <%= item.first_name %>
+                </li>
+                <li> age: <%= item.age %>
+                        <a href="" class="deleteUser" data-id="<%= users._id %>">
+                            <!-- send id to public/js/main.js as id -->
+                            Delete
+                        </a>
+
+
+                </li>
+                <br />
+
+
+
+
+                <%}) %>
+
+        </ul>
+
+
+
+
+        <%- include ('partials/footer') %>
